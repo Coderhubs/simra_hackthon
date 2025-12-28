@@ -21,7 +21,7 @@ This document explains how the AI chatbot is integrated into the digital textboo
 2. **Integration** (`src/components/BookLayout/index.tsx`): The chatbot is integrated into the book layout component so it appears on all textbook pages.
 
 ### Backend Integration
-- The frontend communicates with the RAG backend running at `http://localhost:8002`
+- The frontend communicates with the RAG backend via API routes (development: `http://localhost:8002`, production: relative path `/api`)
 - Uses the `/api/v1/search-live-content` endpoint for queries
 - When text is selected, it's sent as `selected_text` parameter for focused context
 
@@ -34,8 +34,8 @@ This document explains how the AI chatbot is integrated into the digital textboo
 ## Running the Application
 
 ### Prerequisites
-- Backend RAG server running on `http://localhost:8002`
-- Frontend development server running
+- Development: Backend RAG server running on `http://localhost:8002` and Frontend development server running
+- Production: Backend deployed and accessible via API routes
 
 ### Steps
 1. Start the backend RAG server:
@@ -73,6 +73,7 @@ Since the frontend and backend run on different ports, there may be CORS issues.
 6. The chatbot will use both the selected text and its knowledge of the book to answer
 
 ## Troubleshooting
-- If the chatbot doesn't respond, ensure the backend server is running on port 8002
+- Development: If the chatbot doesn't respond, ensure the backend server is running on port 8002
+- Production: If the chatbot doesn't respond, check that API routes are properly configured and the backend is accessible
 - If you see CORS errors, check that the backend is properly configured with CORS enabled
 - If selected text isn't being captured, try refreshing the page
