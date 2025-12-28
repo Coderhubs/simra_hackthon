@@ -23,7 +23,8 @@ from app.generator import get_agent_response
 app = FastAPI(
     title="Physical AI & Humanoid Robotics RAG Chatbot API",
     description="API for the Physical AI & Humanoid Robotics book RAG system",
-    version="1.0.0"
+    version="1.0.0",
+    root_path="/api"
 )
 
 # Initialize the collection when the application starts

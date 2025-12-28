@@ -2,31 +2,25 @@
   "version": 2,
   "builds": [
     {
+      "src": "backend/RAG_Chatbot/app/main.py",
+      "use": "@vercel/python"
+    },
+    {
       "src": "frontend/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "build"
-      }
-    },
-    {
-      "src": "backend/RAG_Chatbot/app/main.py",
-      "use": "@vercel/python",
-      "config": {
-        "runtime": "python3.9"
+        "distDir": "frontend/build"
       }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/backend/RAG_Chatbot/app/main.py"
+      "dest": "backend/RAG_Chatbot/app/main.py"
     },
     {
       "src": "/(.*)",
-      "dest": "/frontend/$1",
-      "headers": {
-        "Cache-Control": "public, max-age=0, must-revalidate"
-      }
+      "dest": "frontend/build/$1"
     }
   ]
 }
