@@ -1,0 +1,86 @@
+.heroBanner {
+  padding: 6rem 0;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  --ifm-hero-background-color: var(--ifm-color-primary-darkest);
+  color: white;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.heroImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookCover {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--ifm-border-radius);
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 2rem;
+}
+
+.featuresSection {
+  padding: 4rem 0;
+  background-color: var(--ifm-background-color);
+}
+
+.featureCard {
+  margin-bottom: 2rem;
+}
+
+.featureLink {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.featureCard .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+}
+
+.featureCard .card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--ifm-global-shadow-lg);
+}
+
+.featureCard .card__header {
+  min-height: 5rem; /* Ensure consistent height for headers */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.featureCard .card__body {
+  flex-grow: 1;
+  padding: 1rem;
+  text-align: center;
+}
+
+.featureCard .card__footer {
+  padding: 1rem;
+}

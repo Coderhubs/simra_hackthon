@@ -1,0 +1,427 @@
+/**
+ * Modern professional theme matching the chatbot UI
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* Modern professional theme matching the chatbot UI */
+:root {
+  --ifm-color-primary: #667eea;
+  --ifm-color-primary-dark: #5a6fd8;
+  --ifm-color-primary-darker: #5268ca;
+  --ifm-color-primary-darkest: #4356a8;
+  --ifm-color-primary-light: #758ce0;
+  --ifm-color-primary-lighter: #849ae7;
+  --ifm-color-primary-lightest: #a3b4f0;
+  --ifm-color-secondary: #764ba2;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(102, 126, 234, 0.15);
+
+  /* Background colors */
+  --ifm-background-color: #f8fafc;
+  --ifm-background-surface-color: #ffffff;
+
+  /* Text colors */
+  --ifm-font-color-base: #1a1a1a;
+  --ifm-font-color-base-inverse: #ffffff;
+  --ifm-font-color-secondary: #4a5568;
+
+  /* Border colors */
+  --ifm-border-color: #e2e8f0;
+  --ifm-toc-border-color: #e2e8f0;
+
+  /* Shadow effects */
+  --ifm-global-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --ifm-global-shadow-top: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+
+  /* Spacing */
+  --ifm-spacing-horizontal: 1.5rem;
+  --ifm-spacing-vertical: 1.5rem;
+
+  /* Navbar */
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.95);
+  --ifm-navbar-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --ifm-navbar-link-hover-color: #667eea;
+
+  /* Sidebar */
+  --ifm-menu-color: #1e293b;
+  --ifm-menu-color-active: #667eea;
+  --ifm-menu-color-hover: #667eea;
+
+  /* Cards and containers */
+  --ifm-card-background-color: #ffffff;
+  --ifm-card-border-radius: 16px;
+  --ifm-card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+
+  /* Buttons */
+  --ifm-button-background-color: #667eea;
+  --ifm-button-border-radius: 8px;
+  --ifm-button-size: 16px 32px;
+}
+
+/* Dark theme variables - Vibrant and professional */
+[data-theme='dark'] {
+  --ifm-color-primary: #8a6cff;
+  --ifm-color-primary-dark: #7a5ced;
+  --ifm-color-primary-darker: #6a4ddc;
+  --ifm-color-primary-darkest: #5a3cb9;
+  --ifm-color-primary-light: #9a7dff;
+  --ifm-color-primary-lighter: #aa9eff;
+  --ifm-color-primary-lightest: #c5baff;
+  --ifm-color-secondary: #ff6b9d;  /* Vibrant pink accent */
+
+  /* Background colors */
+  --ifm-background-color: #0a0a15;  /* Deeper, more vibrant dark */
+  --ifm-background-surface-color: #1a1a2a;
+
+  /* Text colors - vibrant and readable */
+  --ifm-font-color-base: #ffffff;  /* Pure white */
+  --ifm-font-color-base-inverse: #0a0a15;  /* Dark for light backgrounds */
+  --ifm-font-color-secondary: #d1d5db;  /* Light gray for secondary text */
+
+  /* Border colors */
+  --ifm-border-color: #374151;
+  --ifm-toc-border-color: #4b5563;
+
+  /* Shadow effects for depth */
+  --ifm-global-shadow: 0 4px 6px -1px rgba(138, 108, 255, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --ifm-card-shadow: 0 10px 25px -5px rgba(138, 108, 255, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+
+  /* Cards */
+  --ifm-card-background-color: #1a1a2a;
+
+  /* Navbar */
+  --ifm-navbar-background-color: rgba(10, 10, 21, 0.95);
+}
+
+/* Dark theme specific overrides for vibrant look */
+[data-theme='dark'] .markdown h1,
+[data-theme='dark'] .markdown h2,
+[data-theme='dark'] .markdown h3,
+[data-theme='dark'] .markdown h4 {
+  color: #ffffff;
+  background: linear-gradient(135deg, #8a6cff, #ff6b9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='dark'] .markdown h2::after {
+  background: linear-gradient(90deg, #8a6cff, #ff6b9d) !important;
+}
+
+[data-theme='dark'] .navbar {
+  background: linear-gradient(135deg, rgba(10, 10, 21, 0.95), rgba(26, 26, 42, 0.95));
+  border-bottom: 1px solid rgba(138, 108, 255, 0.2);
+}
+
+[data-theme='dark'] .navbar__title {
+  color: #ffffff;
+  background: linear-gradient(135deg, #8a6cff, #ff6b9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='dark'] .navbar__link {
+  color: #e5e7eb;
+}
+
+[data-theme='dark'] .navbar__link:hover {
+  color: #8a6cff;
+}
+
+[data-theme='dark'] .menu__link {
+  color: #d1d5db;
+  border-radius: 8px;
+  margin: 4px 0;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .menu__link:hover {
+  background: rgba(138, 108, 255, 0.1);
+  color: #8a6cff;
+  transform: translateX(4px);
+}
+
+[data-theme='dark'] .menu__link--active:not(.menu__link--sublist) {
+  background: linear-gradient(135deg, rgba(138, 108, 255, 0.2), rgba(255, 107, 157, 0.1));
+  color: #8a6cff;
+  font-weight: 600;
+  border-left: 3px solid #8a6cff;
+}
+
+[data-theme='dark'] .footer {
+  background: linear-gradient(135deg, #8a6cff 0%, #ff6b9d 100%);
+  color: white;
+}
+
+[data-theme='dark'] .footer__title,
+[data-theme='dark'] .footer__link-item,
+[data-theme='dark'] .footer__copyright {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme='dark'] code {
+  background: rgba(30, 30, 50, 0.5);
+  color: #fbbf24;
+  border: 1px solid rgba(138, 108, 255, 0.3);
+}
+
+[data-theme='dark'] pre code {
+  background: linear-gradient(135deg, #1a1a2a, #2a2a4a);
+  color: #e2e8f0;
+  border: 1px solid rgba(138, 108, 255, 0.2);
+}
+
+[data-theme='dark'] .markdown blockquote {
+  border-left: 4px solid #8a6cff;
+  background: rgba(138, 108, 255, 0.08);
+  border-radius: 0 8px 8px 0;
+}
+
+[data-theme='dark'] .button {
+  background: linear-gradient(135deg, #8a6cff, #ff6b9d);
+  color: white;
+  border: none;
+}
+
+[data-theme='dark'] .button:hover {
+  background: linear-gradient(135deg, #7a5ced, #e85a8c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(138, 108, 255, 0.3);
+}
+
+[data-theme='dark'] .main-wrapper {
+  background: linear-gradient(135deg, #0a0a15 0%, #1a1a2a 100%);
+}
+
+[data-theme='dark'] .table-of-contents__link {
+  color: #d1d5db;
+}
+
+[data-theme='dark'] .table-of-contents__link:hover {
+  color: #8a6cff;
+}
+
+[data-theme='dark'] .table-of-contents__link--active {
+  color: #8a6cff;
+  font-weight: 600;
+}
+
+/* Global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Navbar enhancements */
+.navbar {
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  box-shadow: var(--ifm-navbar-shadow);
+  transition: all 0.3s ease;
+}
+
+.navbar__link {
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+/* Main content enhancements */
+.main-wrapper {
+  background: linear-gradient(135deg, #f0f4ff 0%, #fdf2ff 100%);
+  min-height: 100vh;
+}
+
+/* Container styling */
+.container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Card-like styling for content */
+.markdown > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+/* Better typography */
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.markdown h1 {
+  font-size: 2.5rem;
+  color: var(--ifm-font-color-base);
+}
+
+.markdown h2 {
+  font-size: 2rem;
+  color: var(--ifm-color-primary);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.markdown h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--ifm-color-secondary));
+  border-radius: 2px;
+}
+
+.markdown h3 {
+  font-size: 1.5rem;
+  color: var(--ifm-color-primary);
+}
+
+/* Blockquote styling */
+.markdown blockquote {
+  border-left: 4px solid var(--ifm-color-primary);
+  background: rgba(102, 126, 234, 0.05);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+/* Code block styling */
+.docusaurus-highlight-code-line {
+  background-color: rgba(102, 126, 234, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+/* Button enhancements */
+.button {
+  border-radius: var(--ifm-button-border-radius);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: var(--ifm-global-shadow);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+}
+
+/* Sidebar enhancements */
+.menu {
+  padding: 1rem;
+}
+
+.menu__list-item > .menu__list {
+  margin-left: 0.75rem;
+}
+
+.menu__link {
+  border-radius: 8px;
+  margin: 2px 0;
+  transition: all 0.2s ease;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  background: rgba(102, 126, 234, 0.1);
+  font-weight: 600;
+}
+
+/* Footer enhancements */
+.footer {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-secondary) 100%);
+  color: white;
+  margin: 0;
+  padding: 3rem 0 2rem 0;
+  backdrop-filter: blur(10px);
+}
+
+.footer__title,
+.footer__link-item,
+.footer__copyright {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer__link-item:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Table styling */
+.markdown table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--ifm-global-shadow);
+}
+
+.markdown table th,
+.markdown table td {
+  padding: 0.75rem 1rem;
+  border-color: var(--ifm-border-color);
+}
+
+/* Better spacing and layout */
+.padding-top--md {
+  padding-top: 2.5rem !important;
+}
+
+.padding-bottom--md {
+  padding-bottom: 2.5rem !important;
+}
+
+/* Custom animations */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better focus states */
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* Improved accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
