@@ -5,11 +5,14 @@ This file serves as the single entry point for Vercel deployment
 import sys
 import os
 
-# Add the backend directory to the Python path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'backend', 'RAG_Chatbot'))
+# Add the backend directory to the Python path to ensure imports work
+current_dir = os.path.dirname(__file__)
+backend_dir = os.path.join(current_dir, 'backend', 'RAG_Chatbot')
+sys.path.insert(0, backend_dir)
+sys.path.insert(0, os.path.join(backend_dir, 'app'))
 
 # Import the main FastAPI app from the app module
-from backend.RAG_Chatbot.app.main import app
+from app.main import app
 
 # This ensures Vercel can properly serve the FastAPI application
 if __name__ == "__main__":
