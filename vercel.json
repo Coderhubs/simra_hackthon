@@ -9,14 +9,29 @@
       }
     },
     {
-      "src": "backend/RAG_Chatbot/app/main.py",
-      "use": "@vercel/python"
+      "src": "api.py",
+      "use": "@vercel/python",
+      "config": {
+        "includeFiles": ["backend/**", "requirements.txt"]
+      }
     }
   ],
   "routes": [
     {
       "src": "/api/v1/(.*)",
-      "dest": "/backend/RAG_Chatbot/app/main.py"
+      "dest": "/api.py"
+    },
+    {
+      "src": "/chat(.*)",
+      "dest": "/api.py"
+    },
+    {
+      "src": "/ingest(.*)",
+      "dest": "/api.py"
+    },
+    {
+      "src": "/health(.*)",
+      "dest": "/api.py"
     },
     {
       "handle": "filesystem"

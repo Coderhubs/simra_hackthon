@@ -3,8 +3,8 @@ from qdrant_client.http import models
 from typing import Dict, Any, Optional, List
 import logging
 
-# Initialize the embedding model
-embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
+# Initialize the embedding model (lazy loading)
+embedding_model = None
 
 logger = logging.getLogger(__name__)
 
@@ -13,6 +13,9 @@ def embed_text(text: str) -> List[float]:
     """
     Generate embeddings for the given text using SentenceTransformer
     """
+    global embedding_model
+    if embedding_model is None:
+        embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
     embedding = embedding_model.encode(text)
     return embedding.tolist()
 

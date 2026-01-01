@@ -4,6 +4,9 @@ from typing import Dict, Any
 import os
 from dotenv import load_dotenv
 
+# Load configuration
+from app.config import DEFAULT_HOST, DEFAULT_PORT
+
 # Load environment variables
 load_dotenv()
 
@@ -20,12 +23,16 @@ from app.retriever import (
 from app.generator import get_agent_response
 
 # Create FastAPI app
+
 app = FastAPI(
     title="Physical AI & Humanoid Robotics RAG Chatbot API",
     description="API for the Physical AI & Humanoid Robotics book RAG system",
     version="1.0.0",
-    root_path="/api"
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/api/openapi.json"
 )
+
 
 # Initialize the collection when the application starts
 @app.on_event("startup")
@@ -159,5 +166,5 @@ async def ingest(request: IngestRequest):
 # Include the OpenAPI spec
 if __name__ == "__main__":
     import uvicorn
-    port = int(os.getenv("PORT", 8000))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    from app.config import DEFAULT_HOST, DEFAULT_PORT
+    uvicorn.run(app, host=DEFAULT_HOST, port=DEFAULT_PORT)

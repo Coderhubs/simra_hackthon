@@ -6,15 +6,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Configure Google Generative AI
+# Configure Google Generative AI (lazy loading)
 api_key = os.getenv("GEMINI_API_KEY")
-if api_key:
-    genai.configure(api_key=api_key)
-    # Initialize the generative model
-    model = genai.GenerativeModel('gemini-2.5-flash')
-else:
-    # Create a mock model for testing purposes if no API key is provided
-    model = None
+model = None
+if not api_key:
     print("Warning: GEMINI_API_KEY not found. The generator will return mock responses.")
 
 
@@ -29,11 +24,18 @@ def get_agent_response(
     # Generate the RAG prompt
     prompt = generate_rag_prompt(query, contexts or [], selected_text)
 
+    # Initialize the model if not already done
+    global model
     if model is None:
-        # Return a mock response if no API key is configured
-        return {
-            "response": f"Mock response for query: {query}. To get real responses, please set your GEMINI_API_KEY."
-        }
+        if api_key:
+            import google.generativeai as genai
+            genai.configure(api_key=api_key)
+            model = genai.GenerativeModel('gemini-2.5-flash')
+        else:
+            # Return a mock response if no API key is configured
+            return {
+                "response": f"Mock response for query: {query}. To get real responses, please set your GEMINI_API_KEY."
+            }
 
     try:
         # Generate content using the model

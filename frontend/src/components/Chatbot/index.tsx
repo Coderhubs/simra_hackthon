@@ -56,8 +56,11 @@ const Chatbot: React.FC<ChatbotProps> = ({ selectedText = '' }) => {
     try {
       // API call to backend - using relative path for Vercel deployment
       // In production, this will route through Vercel's proxy to the backend
-      // In development, you may need to adjust this to your local backend URL
-      const response = await fetch('/api/v1/search-live-content', {
+      // In development, using full URL to reach backend server
+      const backendUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost'
+        ? 'http://localhost:8003'
+        : '';
+      const response = await fetch(`${backendUrl}/api/v1/search-live-content`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
